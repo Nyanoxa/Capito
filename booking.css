@@ -1,0 +1,432 @@
+/* ========================================
+   CAPITO BOOKING PAGE
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f0e5d4;
+    color: #35251c;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.booking-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.booking-header {
+    width: 100%;
+    height: 90px;
+
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(53, 37, 28, 0.15);
+}
+
+.booking-logo {
+    font-family: Arial, sans-serif;
+
+    font-size: 22px;
+    letter-spacing: 7px;
+}
+
+.booking-back {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   BOOKING
+======================================== */
+
+.booking {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 120px 8vw 140px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.booking-intro {
+    padding-top: 20px;
+}
+
+.booking-intro span {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    opacity: 0.55;
+}
+
+.booking-intro h1 {
+    margin-top: 30px;
+
+    font-size: clamp(65px, 8vw, 120px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+}
+
+.booking-intro p {
+    max-width: 380px;
+
+    margin-top: 45px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #765b48;
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+.booking-form {
+    width: 100%;
+
+    max-width: 520px;
+}
+
+
+/* ========================================
+   FORM GROUP
+======================================== */
+
+.form-group {
+    margin-bottom: 35px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    opacity: 0.65;
+}
+
+
+/* ========================================
+   INPUTS
+======================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 15px 0;
+
+    border: none;
+
+    border-bottom: 1px solid rgba(53, 37, 28, 0.3);
+
+    outline: none;
+
+    background: transparent;
+
+    color: #35251c;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 17px;
+
+    transition:
+        border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-bottom-color: #35251c;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #765b48;
+
+    opacity: 0.6;
+}
+
+
+/* ========================================
+   SELECT
+======================================== */
+
+.form-group select {
+    cursor: pointer;
+}
+
+
+/* ========================================
+   TEXTAREA
+======================================== */
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 100px;
+}
+
+
+/* ========================================
+   TWO COLUMNS
+======================================== */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+}
+
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.booking-button {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 20px 30px;
+
+    border: 1px solid #35251c;
+
+    background: #35251c;
+
+    color: #f0e5d4;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.booking-button:hover {
+    background: transparent;
+
+    color: #35251c;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.booking-footer {
+    margin-top: auto;
+
+    padding: 60px 55px;
+
+    background: #2c211b;
+
+    color: #f0e5d4;
+
+    text-align: center;
+}
+
+.booking-footer span {
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    letter-spacing: 6px;
+}
+
+.booking-footer p {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    color: #cdbba6;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .booking-header {
+        height: 75px;
+
+        padding: 0 25px;
+    }
+
+    .booking-logo {
+        font-size: 18px;
+
+        letter-spacing: 5px;
+    }
+
+    .booking-back {
+        font-size: 8px;
+    }
+
+
+    /* BOOKING */
+
+    .booking {
+        display: block;
+
+        padding: 90px 25px 100px;
+    }
+
+
+    /* INTRO */
+
+    .booking-intro {
+        padding-top: 0;
+    }
+
+    .booking-intro span {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    .booking-intro h1 {
+        margin-top: 25px;
+
+        font-size: 18vw;
+    }
+
+    .booking-intro p {
+        margin-top: 35px;
+
+        font-size: 15px;
+
+        max-width: 300px;
+    }
+
+
+    /* FORM */
+
+    .booking-form {
+        margin-top: 70px;
+
+        max-width: none;
+    }
+
+
+    /* FORM ROW */
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    /* INPUTS */
+
+    .form-group {
+        margin-bottom: 30px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+    }
+
+
+    /* BUTTON */
+
+    .booking-button {
+        margin-top: 10px;
+
+        padding: 18px 20px;
+    }
+
+
+    /* FOOTER */
+
+    .booking-footer {
+        padding: 50px 25px;
+    }
+
+}

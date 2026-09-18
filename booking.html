@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CAPITO — Бронирование</title>
+
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+
+    <main class="booking-page">
+
+        <!-- HEADER -->
+
+        <header class="booking-header">
+
+            <a href="index.html" class="booking-logo">
+                CAPITO
+            </a>
+
+            <a href="index.html" class="booking-back">
+                ← Главная
+            </a>
+
+        </header>
+
+
+        <!-- BOOKING -->
+
+        <section class="booking">
+
+            <div class="booking-intro">
+
+                <span>CAPITO COFFEE BAR</span>
+
+                <h1>
+                    Забронировать
+                </h1>
+
+                <p>
+                    Выберите удобные дату и время,
+                    чтобы провести время в CAPITO.
+                </p>
+
+            </div>
+
+
+            <form class="booking-form">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Имя
+                    </label>
+
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="date">
+                            Дата
+                        </label>
+
+                        <input type="date" id="date" name="date" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="time">
+                            Время
+                        </label>
+
+                        <input type="time" id="time" name="time" required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="guests">
+                        Количество гостей
+                    </label>
+
+                    <input type="number" id="guests" name="guests" placeholder="Введите количество гостей" min="1"
+                        max="50" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Телефон
+                    </label>
+
+                    <input type="tel" id="phone" name="phone" placeholder="+996 ___ ___ ___" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="comment">
+                        Комментарий
+                    </label>
+
+                    <textarea id="comment" name="comment" placeholder="Дополнительные пожелания" rows="4"></textarea>
+
+                </div>
+
+
+                <button type="submit" class="booking-button">
+                    Забронировать
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="booking-footer">
+
+            <span>CAPITO</span>
+
+            <p>
+                Место, где вкус становится впечатлением.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script>
+
+        const form = document.querySelector(".booking-form");
+
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            alert("Спасибо! Ваша заявка на бронирование отправлена.");
+
+            form.reset();
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1004 @@
+/* ========================================
+   CAPITO MENU PAGE
+======================================== */
+
+.menu-page {
+    margin: 0;
+    padding: 0;
+
+    background: #eee2d0;
+    color: #3a2920;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.menu-header {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+    background: rgba(238, 226, 208, 0.94);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.menu-logo {
+    font-family:
+        Arial,
+        sans-serif;
+
+    color: #3a2920;
+
+    font-size: 21px;
+
+    letter-spacing: 7px;
+
+    text-decoration: none;
+}
+
+
+/* ========================================
+   BACK
+======================================== */
+
+.menu-back {
+    font-family:
+        Arial,
+        sans-serif;
+
+    color: #3a2920;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.menu-hero {
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+    min-height: 700px;
+
+    padding: 140px 8vw 90px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: flex-start;
+
+    overflow: hidden;
+
+    background: #281d17;
+
+    color: #eee2d0;
+}
+
+
+/* ========================================
+   HERO IMAGE
+======================================== */
+
+.menu-hero__image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    background: #281d17;
+}
+
+
+.menu-hero__image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(20, 14, 10, 0.15),
+            rgba(20, 14, 10, 0.65));
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+.menu-hero__image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 1.5s cubic-bezier(0.22,
+            1,
+            0.36,
+            1);
+}
+
+
+.menu-hero:hover .menu-hero__image img {
+    transform: scale(1.025);
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.menu-hero__content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1000px;
+}
+
+
+.menu-hero__small {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+
+    color: #eee2d0;
+}
+
+
+.menu-hero h1 {
+    margin: 0;
+
+    font-size:
+        clamp(100px,
+            18vw,
+            250px);
+
+    font-weight: 400;
+
+    line-height: 0.75;
+
+    letter-spacing: -7px;
+
+    color: #eee2d0;
+
+    max-width: 100%;
+}
+
+
+.menu-hero p {
+    margin-top: 45px;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #e1d0b9;
+
+    max-width: 400px;
+}
+
+
+/* ========================================
+   SCROLL INDICATOR
+======================================== */
+
+.menu-scroll {
+    position: absolute;
+
+    right: 8vw;
+    bottom: 45px;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #eee2d0;
+}
+
+
+.menu-scroll span {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    writing-mode: vertical-rl;
+
+    opacity: 0.7;
+}
+
+
+.menu-scroll i {
+    display: block;
+
+    width: 1px;
+    height: 55px;
+
+    background: #eee2d0;
+
+    opacity: 0.6;
+
+    animation:
+        scrollLine 1.8s ease-in-out infinite;
+}
+
+
+@keyframes scrollLine {
+
+    0% {
+        transform: scaleY(0);
+
+        transform-origin: top;
+
+        opacity: 0;
+    }
+
+    40% {
+        transform: scaleY(1);
+
+        transform-origin: top;
+
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scaleY(1);
+
+        transform-origin: bottom;
+
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scaleY(0);
+
+        transform-origin: bottom;
+
+        opacity: 0;
+    }
+}
+
+
+/* ========================================
+   CATEGORY NAVIGATION
+======================================== */
+
+.menu-nav {
+    position: relative;
+
+    top: auto;
+
+    z-index: 50;
+
+    min-height: 70px;
+
+    padding: 20px 8vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 45px;
+
+    background: #eee2d0;
+
+    border-bottom:
+        1px solid rgba(58,
+            41,
+            32,
+            0.15);
+}
+
+
+.menu-nav a {
+    position: relative;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    color: #3a2920;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+}
+
+
+.menu-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #76523c;
+
+    transition:
+        width 0.3s ease;
+}
+
+
+.menu-nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ========================================
+   CATEGORY
+======================================== */
+
+.menu-category {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+
+    background: #eee2d0;
+}
+
+
+.menu-category--reverse {
+    background: #3b2a20;
+
+    color: #eee2d0;
+}
+
+
+.menu-category--reverse .category-content {
+    order: 1;
+}
+
+
+.menu-category--reverse .category-photo {
+    order: 2;
+}
+
+
+/* ========================================
+   CATEGORY PHOTO
+======================================== */
+
+.category-photo {
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: #cdb99f;
+}
+
+
+.category-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 1.2s cubic-bezier(0.22,
+            1,
+            0.36,
+            1);
+}
+
+
+.category-photo:hover img {
+    transform: scale(1.04);
+}
+
+
+/* ========================================
+   CATEGORY CONTENT
+======================================== */
+
+.category-content {
+    min-width: 0;
+
+    padding:
+        100px 7vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.category-number {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+
+    margin-bottom: 25px;
+}
+
+
+.category-content h2 {
+    max-width: 650px;
+
+    font-size:
+        clamp(60px,
+            7vw,
+            115px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 35px;
+}
+
+
+.category-description {
+    max-width: 400px;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #765b48;
+
+    margin-bottom: 60px;
+}
+
+
+.menu-category--reverse .category-description {
+    color: #cdb9a3;
+}
+
+
+/* ========================================
+   DISHES
+======================================== */
+
+.dishes {
+    width: 100%;
+
+    max-width: 700px;
+}
+
+
+.dish {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap: 25px;
+
+    padding: 25px 0;
+
+    border-top:
+        1px solid rgba(58,
+            41,
+            32,
+            0.2);
+
+    transition:
+        padding-left 0.3s ease;
+
+    min-width: 0;
+}
+
+
+.menu-category--reverse .dish {
+    border-color:
+        rgba(238,
+            226,
+            208,
+            0.2);
+}
+
+
+.dish:hover {
+    padding-left: 10px;
+}
+
+
+.dish h3 {
+    font-size: 21px;
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+}
+
+
+.dish p {
+    max-width: 400px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    color: #806653;
+}
+
+
+.menu-category--reverse .dish p {
+    color: #c7b29b;
+}
+
+
+.dish span {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    padding-top: 4px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.menu-footer {
+    min-height: 55vh;
+
+    padding:
+        100px 8vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: #281d17;
+
+    color: #eee2d0;
+}
+
+
+.footer-logo {
+    font-size:
+        clamp(70px,
+            12vw,
+            170px);
+
+    font-weight: 400;
+
+    letter-spacing: -3px;
+}
+
+
+.menu-footer p {
+    margin-top: 20px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+
+.menu-footer a {
+    margin-top: 50px;
+
+    color: #eee2d0;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .menu-category {
+        grid-template-columns:
+            45% 55%;
+    }
+
+
+    .category-content {
+        padding:
+            70px 5vw;
+    }
+
+
+    .category-content h2 {
+        font-size: 8vw;
+    }
+
+
+    .menu-hero {
+        padding:
+            130px 6vw 80px;
+    }
+
+
+    .menu-hero h1 {
+        font-size:
+            clamp(90px,
+                15vw,
+                180px);
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    /* HEADER */
+
+    .menu-header {
+        position: absolute;
+
+        height: 70px;
+
+        padding:
+            0 22px;
+    }
+
+
+    .menu-logo {
+        font-size: 17px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .menu-back {
+        font-size: 8px;
+    }
+
+
+    /* HERO */
+
+    .menu-hero {
+        min-height: 100svh;
+
+        height: 100svh;
+
+        padding:
+            120px 25px 60px;
+
+        display: flex;
+
+        align-items: flex-start;
+
+        justify-content: flex-end;
+    }
+
+
+    .menu-hero__content {
+        width: 100%;
+
+        padding-bottom: 10px;
+    }
+
+
+    .menu-hero__small {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .menu-hero h1 {
+        font-size: 25vw;
+
+        letter-spacing: -3px;
+
+        line-height: 0.8;
+    }
+
+
+    .menu-hero p {
+        font-size: 15px;
+
+        margin-top: 30px;
+
+        max-width: 100%;
+    }
+
+
+    /* HERO IMAGE */
+
+    .menu-hero__image {
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 0;
+    }
+
+
+    .menu-hero__image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        object-position: center;
+    }
+
+
+    /* SCROLL */
+
+    .menu-scroll {
+        right: 20px;
+
+        bottom: 30px;
+    }
+
+
+    .menu-scroll span {
+        font-size: 7px;
+    }
+
+
+    .menu-scroll i {
+        height: 40px;
+    }
+
+
+    /* NAVIGATION */
+
+    .menu-nav {
+        position: relative;
+
+        top: auto;
+
+        justify-content:
+            flex-start;
+
+        overflow-x: auto;
+
+        gap: 30px;
+
+        padding:
+            18px 22px;
+
+        scrollbar-width: none;
+    }
+
+
+    .menu-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .menu-nav a {
+        white-space: nowrap;
+    }
+
+
+    /* CATEGORY */
+
+    .menu-category {
+        min-height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+
+    .menu-category--reverse .category-photo {
+        order: 1;
+    }
+
+
+    .menu-category--reverse .category-content {
+        order: 2;
+    }
+
+
+    /* PHOTO */
+
+    .category-photo {
+        width: 100%;
+
+        height: 65vh;
+
+        min-height: 450px;
+
+        flex-shrink: 0;
+    }
+
+
+    .category-photo img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+
+    /* CONTENT */
+
+    .category-content {
+        padding:
+            80px 25px 90px;
+    }
+
+
+    .category-content h2 {
+        font-size: 18vw;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .category-description {
+        font-size: 15px;
+
+        margin-bottom: 45px;
+    }
+
+
+    /* DISH */
+
+    .dish {
+        grid-template-columns:
+            1fr auto;
+
+        gap: 15px;
+
+        padding:
+            25px 0;
+    }
+
+
+    .dish h3 {
+        font-size: 19px;
+    }
+
+
+    .dish p {
+        font-size: 12px;
+    }
+
+
+    .dish span {
+        font-size: 10px;
+    }
+
+
+    /* FOOTER */
+
+    .menu-footer {
+        min-height: 45vh;
+
+        padding:
+            80px 25px;
+    }
+
+
+    .footer-logo {
+        font-size: 20vw;
+    }
+
+}

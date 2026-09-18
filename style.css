@@ -1,0 +1,1101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: #f0e5d4;
+  color: #35251c;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 90px;
+
+  padding: 0 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+
+  color: #f4eadb;
+
+  pointer-events: none;
+}
+
+.header>* {
+  pointer-events: auto;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 7px;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.navigation {
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 42px;
+}
+
+.navigation a,
+.reservation-link {
+  position: relative;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.navigation a::after,
+.reservation-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 1px;
+
+  background: currentColor;
+
+  transition: width 0.4s ease;
+}
+
+.navigation a:hover::after,
+.reservation-link:hover::after {
+  width: 100%;
+}
+
+
+/* ========================================
+   MOBILE MENU BUTTON
+======================================== */
+
+.menu-button {
+  display: none;
+
+  width: 35px;
+  height: 25px;
+
+  padding: 0;
+  border: 0;
+
+  background: transparent;
+
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 7px;
+
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background: #f4eadb;
+
+  transition: transform 0.3s ease;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+
+  overflow: hidden;
+
+  background: #2d211a;
+  color: #f5eadc;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ========================================
+   HERO VIDEO
+======================================== */
+
+.hero__video {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  transform: translate(-50%, -50%);
+
+  object-fit: cover;
+
+  z-index: 0;
+}
+
+
+/* ========================================
+   HERO OVERLAY
+======================================== */
+
+.hero__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(to bottom,
+      rgba(45, 33, 26, 0.48),
+      rgba(45, 33, 26, 0.15) 40%,
+      rgba(45, 33, 26, 0.72));
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero__content {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+
+  transform: translateY(-10px);
+}
+
+.hero__small {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+  letter-spacing: 5px;
+
+  margin-bottom: 28px;
+
+  opacity: 0;
+
+  animation: heroFadeUp 1.2s 0.3s forwards;
+}
+
+.hero h1 {
+  font-size: clamp(80px, 15vw, 230px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.06em;
+
+  line-height: 0.8;
+
+  opacity: 0;
+
+  animation: heroFadeUp 1.5s 0.5s forwards;
+}
+
+.hero__subtitle {
+  margin-top: 40px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  animation: heroFadeUp 1.2s 0.8s forwards;
+}
+
+
+/* ========================================
+   HERO BOTTOM
+======================================== */
+
+.hero__bottom {
+  position: absolute;
+
+  left: 55px;
+  bottom: 45px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  z-index: 3;
+}
+
+.hero__bottom span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.hero__line {
+  width: 55px;
+  height: 1px;
+
+  background: #e7d8c4;
+}
+
+
+/* ========================================
+   HERO ANIMATION
+======================================== */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   GENERAL SECTIONS
+======================================== */
+
+.section-number {
+  display: block;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+
+  opacity: 0.55;
+}
+
+.section-label {
+  display: block;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   SECTION 01 — RESTAURANT
+======================================== */
+
+.intro {
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: grid;
+
+  grid-template-columns: 55% 45%;
+
+  background: #f0e5d4;
+}
+
+
+/* ========================================
+   RESTAURANT IMAGE
+======================================== */
+
+.intro__image {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+
+  overflow: hidden;
+
+  background: #6b4935;
+}
+
+.intro__image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 1.2s cubic-bezier(0.22,
+      1,
+      0.36,
+      1);
+}
+
+.intro__image:hover img {
+  transform: scale(1.04);
+}
+
+
+/* ========================================
+   RESTAURANT CONTENT
+======================================== */
+
+.intro__content {
+  width: 100%;
+
+  padding: 9vw 7vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: #35251c;
+}
+
+.intro__number {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+
+  opacity: 0.5;
+}
+
+.intro__label {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 55px;
+}
+
+
+/* ========================================
+   RESTAURANT TITLE
+======================================== */
+
+.intro__content h2 {
+  max-width: 700px;
+
+  font-size: clamp(55px,
+      6vw,
+      100px);
+
+  font-weight: 400;
+
+  line-height: 0.96;
+
+  margin-bottom: 55px;
+}
+
+.intro__content h2 em {
+  color: #76513b;
+
+  font-style: italic;
+}
+
+
+/* ========================================
+   RESTAURANT TEXT
+======================================== */
+
+.intro__content p {
+  max-width: 430px;
+
+  font-size: 17px;
+
+  line-height: 1.85;
+
+  color: #684c3b;
+
+  margin-bottom: 50px;
+}
+
+
+/* ========================================
+   TEXT LINK
+======================================== */
+
+.text-link {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 25px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.text-link span {
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+.text-link:hover span {
+  transform: translateX(8px);
+}
+
+
+/* ========================================
+   MENU
+======================================== */
+
+.menu-section {
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: grid;
+
+  grid-template-columns: 55% 45%;
+
+  background: #34251d;
+
+  color: #f3e7d8;
+}
+
+.menu-image {
+  width: 100%;
+  min-height: 700px;
+
+  background:
+    linear-gradient(rgba(50, 35, 25, 0.15),
+      rgba(50, 35, 25, 0.15)),
+    url("menu.jpg") center / cover no-repeat;
+}
+
+.menu-content {
+  padding: 12vw 8vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-content h2 {
+  font-size: clamp(70px,
+      8vw,
+      130px);
+
+  font-weight: 400;
+
+  margin: 35px 0;
+}
+
+.menu-content p {
+  max-width: 420px;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  color: #cdbba6;
+
+  margin-bottom: 55px;
+}
+
+
+/* ========================================
+   MENU BUTTON
+======================================== */
+
+.outline-button {
+  width: fit-content;
+
+  padding: 18px 30px;
+
+  border: 1px solid rgba(243,
+      231,
+      216,
+      0.55);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+.outline-button:hover {
+  background: #f3e7d8;
+
+  color: #34251d;
+}
+
+
+/* ========================================
+   ATMOSPHERE
+======================================== */
+
+.atmosphere {
+  width: 100%;
+
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(rgba(56, 39, 29, 0.45),
+      rgba(56, 39, 29, 0.45)),
+    url("atmosphere.jpg") center / cover no-repeat;
+
+  color: #f5eadc;
+}
+
+.atmosphere__content {
+  margin-left: 10vw;
+}
+
+.atmosphere h2 {
+  margin-top: 45px;
+
+  font-size: clamp(65px,
+      9vw,
+      150px);
+
+  font-weight: 400;
+
+  line-height: 0.9;
+}
+
+.atmosphere h2 em {
+  font-style: italic;
+}
+
+/* ========================================
+   CONTACTS
+======================================== */
+
+.contacts {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  background: #e3d3bd;
+  color: #35251c;
+}
+
+.contacts__content {
+  width: 100%;
+
+  padding: 9vw 10vw;
+}
+
+.contacts h2 {
+  margin-top: 45px;
+  margin-bottom: 75px;
+
+  font-size: clamp(65px,
+      9vw,
+      145px);
+
+  font-weight: 400;
+
+  line-height: 0.9;
+}
+
+.contacts h2 em {
+  font-style: italic;
+  color: #76513b;
+}
+
+
+/* ========================================
+   CONTACTS INFO
+======================================== */
+
+.contacts__info {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 40px;
+
+  margin-bottom: 65px;
+}
+
+.contacts__item span {
+  display: block;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  opacity: 0.5;
+
+  margin-bottom: 20px;
+}
+
+.contacts__item p {
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #634938;
+}
+
+/* ========================================
+   RESERVATION
+======================================== */
+
+.reservation {
+  width: 100%;
+
+  min-height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: #4a3225;
+
+  color: #f4e8d9;
+}
+
+.reservation__content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.reservation h2 {
+  margin: 45px 0 65px;
+
+  font-size: clamp(65px,
+      9vw,
+      145px);
+
+  font-weight: 400;
+
+  line-height: 0.9;
+}
+
+.reservation h2 em {
+  font-style: italic;
+
+  color: #d5b895;
+}
+
+
+/* ========================================
+   RESERVATION BUTTON
+======================================== */
+
+.reservation-button {
+  padding: 22px 38px;
+
+  border: 1px solid #d7c1a5;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  transition: all 0.4s ease;
+}
+
+.reservation-button:hover {
+  background: #f4e8d9;
+
+  color: #4a3225;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+  width: 100%;
+
+  padding: 100px 7vw 40px;
+
+  background: #2c211b;
+
+  color: #e9dccb;
+}
+
+.footer__logo {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 55px;
+
+  letter-spacing: 14px;
+
+  margin-bottom: 100px;
+}
+
+.footer__info {
+  display: grid;
+
+  grid-template-columns: repeat(3,
+      1fr);
+
+  gap: 40px;
+
+  margin-bottom: 100px;
+}
+
+.footer__info span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  opacity: 0.5;
+}
+
+.footer__info p {
+  margin-top: 20px;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.footer__bottom {
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(233,
+      220,
+      203,
+      0.2);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  opacity: 0.45;
+}
+
+
+/* ========================================
+   SCROLL ANIMATION
+======================================== */
+
+.animate {
+  opacity: 0;
+
+  transform: translateY(50px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.animate.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 900px) {
+
+  /* HEADER */
+
+  .header {
+    height: 75px;
+
+    padding: 0 25px;
+  }
+
+  .navigation,
+  .reservation-link {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    height: 100svh;
+
+    min-height: 600px;
+  }
+
+  .hero__video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  .hero h1 {
+    font-size: 22vw;
+
+    letter-spacing: 0.04em;
+  }
+
+  .hero__small {
+    font-size: 8px;
+
+    letter-spacing: 4px;
+  }
+
+  .hero__subtitle {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+
+  .hero__bottom {
+    left: 25px;
+
+    bottom: 30px;
+  }
+
+
+  /* INTRO */
+
+  .intro {
+    min-height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .intro__image {
+    width: 100%;
+
+    height: 70vh;
+
+    min-height: 500px;
+  }
+
+  .intro__content {
+    padding: 90px 25px 100px;
+  }
+
+  .intro__label {
+    margin-bottom: 45px;
+  }
+
+  .intro__content h2 {
+    font-size: 16vw;
+
+    line-height: 0.95;
+
+    margin-bottom: 45px;
+  }
+
+  .intro__content p {
+    font-size: 16px;
+
+    line-height: 1.8;
+  }
+
+
+  /* MENU */
+
+  .menu-section {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .menu-image {
+    min-height: 60vh;
+  }
+
+  .menu-content {
+    padding: 90px 25px;
+  }
+
+  .menu-content h2 {
+    font-size: 20vw;
+  }
+
+
+  /* ATMOSPHERE */
+
+  .atmosphere {
+    min-height: 90vh;
+  }
+
+  .atmosphere__content {
+    margin-left: 25px;
+  }
+
+  .atmosphere h2 {
+    font-size: 17vw;
+  }
+
+
+  /* TEAM */
+
+  .team {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .team__image {
+    min-height: 65vh;
+  }
+
+  .team__content {
+    padding: 90px 25px;
+  }
+
+  .team__content h2 {
+    font-size: 17vw;
+  }
+
+
+  /* RESERVATION */
+
+  .reservation {
+    min-height: 75vh;
+  }
+
+  .reservation h2 {
+    font-size: 18vw;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    padding: 70px 25px 30px;
+  }
+
+  .footer__logo {
+    font-size: 35px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 70px;
+  }
+
+  .footer__info {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    margin-bottom: 70px;
+  }
+
+  .footer__bottom {
+    gap: 20px;
+
+    flex-direction: column;
+  }
+}
