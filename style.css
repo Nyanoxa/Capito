@@ -1,1101 +1,686 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  width: 100%;
-  overflow-x: hidden;
-  background: #f0e5d4;
-  color: #35251c;
-  font-family: Georgia, "Times New Roman", serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-}
-
-
 /* ========================================
-   HEADER
-======================================== */
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 90px;
-
-  padding: 0 55px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  z-index: 100;
-
-  color: #f4eadb;
-
-  pointer-events: none;
-}
-
-.header>* {
-  pointer-events: auto;
-}
-
-
-/* ========================================
-   LOGO
-======================================== */
-
-.logo {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 7px;
-}
-
-
-/* ========================================
-   NAVIGATION
-======================================== */
-
-.navigation {
-  position: absolute;
-
-  left: 50%;
-  transform: translateX(-50%);
-
-  display: flex;
-  align-items: center;
-
-  gap: 42px;
-}
-
-.navigation a,
-.reservation-link {
-  position: relative;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.navigation a::after,
-.reservation-link::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -7px;
-
-  width: 0;
-  height: 1px;
-
-  background: currentColor;
-
-  transition: width 0.4s ease;
-}
-
-.navigation a:hover::after,
-.reservation-link:hover::after {
-  width: 100%;
-}
-
-
-/* ========================================
-   MOBILE MENU BUTTON
-======================================== */
-
-.menu-button {
-  display: none;
-
-  width: 35px;
-  height: 25px;
-
-  padding: 0;
-  border: 0;
-
-  background: transparent;
-
-  flex-direction: column;
-  justify-content: center;
-
-  gap: 7px;
-
-  cursor: pointer;
-}
-
-.menu-button span {
-  display: block;
-
-  width: 100%;
-  height: 1px;
-
-  background: #f4eadb;
-
-  transition: transform 0.3s ease;
-}
-
-
-/* ========================================
-   HERO
-======================================== */
-
-.hero {
-  position: relative;
-
-  width: 100%;
-  height: 100vh;
-  min-height: 700px;
-
-  overflow: hidden;
-
-  background: #2d211a;
-  color: #f5eadc;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* ========================================
-   HERO VIDEO
-======================================== */
-
-.hero__video {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 100%;
-  height: 100%;
-
-  transform: translate(-50%, -50%);
-
-  object-fit: cover;
-
-  z-index: 0;
-}
-
-
-/* ========================================
-   HERO OVERLAY
-======================================== */
-
-.hero__overlay {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 1;
-
-  background:
-    linear-gradient(to bottom,
-      rgba(45, 33, 26, 0.48),
-      rgba(45, 33, 26, 0.15) 40%,
-      rgba(45, 33, 26, 0.72));
-}
-
-
-/* ========================================
-   HERO CONTENT
-======================================== */
-
-.hero__content {
-  position: relative;
-
-  z-index: 2;
-
-  text-align: center;
-
-  transform: translateY(-10px);
-}
-
-.hero__small {
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 10px;
-  letter-spacing: 5px;
-
-  margin-bottom: 28px;
-
-  opacity: 0;
-
-  animation: heroFadeUp 1.2s 0.3s forwards;
-}
-
-.hero h1 {
-  font-size: clamp(80px, 15vw, 230px);
-
-  font-weight: 400;
-
-  letter-spacing: 0.06em;
-
-  line-height: 0.8;
-
-  opacity: 0;
-
-  animation: heroFadeUp 1.5s 0.5s forwards;
-}
-
-.hero__subtitle {
-  margin-top: 40px;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 11px;
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  opacity: 0;
-
-  animation: heroFadeUp 1.2s 0.8s forwards;
-}
-
-
-/* ========================================
-   HERO BOTTOM
-======================================== */
-
-.hero__bottom {
-  position: absolute;
-
-  left: 55px;
-  bottom: 45px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 20px;
-
-  z-index: 3;
-}
-
-.hero__bottom span {
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
-  letter-spacing: 4px;
-}
-
-.hero__line {
-  width: 55px;
-  height: 1px;
-
-  background: #e7d8c4;
-}
-
-
-/* ========================================
-   HERO ANIMATION
-======================================== */
-
-@keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* ========================================
-   GENERAL SECTIONS
-======================================== */
-
-.section-number {
-  display: block;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
-  letter-spacing: 2px;
-
-  margin-bottom: 15px;
-
-  opacity: 0.55;
-}
-
-.section-label {
-  display: block;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-}
-
-
-/* ========================================
-   SECTION 01 — RESTAURANT
-======================================== */
-
-.intro {
-  width: 100%;
-
-  min-height: 100vh;
-
-  display: grid;
-
-  grid-template-columns: 55% 45%;
-
-  background: #f0e5d4;
-}
-
-
-/* ========================================
-   RESTAURANT IMAGE
-======================================== */
-
-.intro__image {
-  position: relative;
-
-  width: 100%;
-  height: 100vh;
-  min-height: 700px;
-
-  overflow: hidden;
-
-  background: #6b4935;
-}
-
-.intro__image img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition:
-    transform 1.2s cubic-bezier(0.22,
-      1,
-      0.36,
-      1);
-}
-
-.intro__image:hover img {
-  transform: scale(1.04);
-}
-
-
-/* ========================================
-   RESTAURANT CONTENT
-======================================== */
-
-.intro__content {
-  width: 100%;
-
-  padding: 9vw 7vw;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  color: #35251c;
-}
-
-.intro__number {
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
-  letter-spacing: 2px;
-
-  margin-bottom: 15px;
-
-  opacity: 0.5;
-}
-
-.intro__label {
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-
-  margin-bottom: 55px;
-}
-
-
-/* ========================================
-   RESTAURANT TITLE
-======================================== */
-
-.intro__content h2 {
-  max-width: 700px;
-
-  font-size: clamp(55px,
-      6vw,
-      100px);
-
-  font-weight: 400;
-
-  line-height: 0.96;
-
-  margin-bottom: 55px;
-}
-
-.intro__content h2 em {
-  color: #76513b;
-
-  font-style: italic;
-}
-
-
-/* ========================================
-   RESTAURANT TEXT
-======================================== */
-
-.intro__content p {
-  max-width: 430px;
-
-  font-size: 17px;
-
-  line-height: 1.85;
-
-  color: #684c3b;
-
-  margin-bottom: 50px;
-}
-
-
-/* ========================================
-   TEXT LINK
-======================================== */
-
-.text-link {
-  width: fit-content;
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 25px;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 10px;
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-}
-
-.text-link span {
-  font-size: 18px;
-
-  transition: transform 0.3s ease;
-}
-
-.text-link:hover span {
-  transform: translateX(8px);
-}
-
-
-/* ========================================
-   MENU
-======================================== */
-
-.menu-section {
-  width: 100%;
-
-  min-height: 100vh;
-
-  display: grid;
-
-  grid-template-columns: 55% 45%;
-
-  background: #34251d;
-
-  color: #f3e7d8;
-}
-
-.menu-image {
-  width: 100%;
-  min-height: 700px;
-
-  background:
-    linear-gradient(rgba(50, 35, 25, 0.15),
-      rgba(50, 35, 25, 0.15)),
-    url("menu.jpg") center / cover no-repeat;
-}
-
-.menu-content {
-  padding: 12vw 8vw;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.menu-content h2 {
-  font-size: clamp(70px,
-      8vw,
-      130px);
-
-  font-weight: 400;
-
-  margin: 35px 0;
-}
-
-.menu-content p {
-  max-width: 420px;
-
-  font-size: 17px;
-
-  line-height: 1.8;
-
-  color: #cdbba6;
-
-  margin-bottom: 55px;
-}
-
-
-/* ========================================
-   MENU BUTTON
-======================================== */
-
-.outline-button {
-  width: fit-content;
-
-  padding: 18px 30px;
-
-  border: 1px solid rgba(243,
-      231,
-      216,
-      0.55);
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-
-  transition:
-    background 0.4s ease,
-    color 0.4s ease;
-}
-
-.outline-button:hover {
-  background: #f3e7d8;
-
-  color: #34251d;
-}
-
-
-/* ========================================
-   ATMOSPHERE
-======================================== */
-
-.atmosphere {
-  width: 100%;
-
-  min-height: 100vh;
-
-  position: relative;
-
-  display: flex;
-  align-items: center;
-
-  background:
-    linear-gradient(rgba(56, 39, 29, 0.45),
-      rgba(56, 39, 29, 0.45)),
-    url("atmosphere.jpg") center / cover no-repeat;
-
-  color: #f5eadc;
-}
-
-.atmosphere__content {
-  margin-left: 10vw;
-}
-
-.atmosphere h2 {
-  margin-top: 45px;
-
-  font-size: clamp(65px,
-      9vw,
-      150px);
-
-  font-weight: 400;
-
-  line-height: 0.9;
-}
-
-.atmosphere h2 em {
-  font-style: italic;
-}
-
-/* ========================================
-   CONTACTS
-======================================== */
-
-.contacts {
-  width: 100%;
-  min-height: 100vh;
-
-  display: flex;
-  align-items: center;
-
-  background: #e3d3bd;
-  color: #35251c;
-}
-
-.contacts__content {
-  width: 100%;
-
-  padding: 9vw 10vw;
-}
-
-.contacts h2 {
-  margin-top: 45px;
-  margin-bottom: 75px;
-
-  font-size: clamp(65px,
-      9vw,
-      145px);
-
-  font-weight: 400;
-
-  line-height: 0.9;
-}
-
-.contacts h2 em {
-  font-style: italic;
-  color: #76513b;
-}
-
-
-/* ========================================
-   CONTACTS INFO
-======================================== */
-
-.contacts__info {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap: 40px;
-
-  margin-bottom: 65px;
-}
-
-.contacts__item span {
-  display: block;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 3px;
-
-  opacity: 0.5;
-
-  margin-bottom: 20px;
-}
-
-.contacts__item p {
-  font-size: 16px;
-
-  line-height: 1.7;
-
-  color: #634938;
-}
-
-/* ========================================
-   RESERVATION
-======================================== */
-
-.reservation {
-  width: 100%;
-
-  min-height: 90vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  background: #4a3225;
-
-  color: #f4e8d9;
-}
-
-.reservation__content {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-}
-
-.reservation h2 {
-  margin: 45px 0 65px;
-
-  font-size: clamp(65px,
-      9vw,
-      145px);
-
-  font-weight: 400;
-
-  line-height: 0.9;
-}
-
-.reservation h2 em {
-  font-style: italic;
-
-  color: #d5b895;
-}
-
-
-/* ========================================
-   RESERVATION BUTTON
-======================================== */
-
-.reservation-button {
-  padding: 22px 38px;
-
-  border: 1px solid #d7c1a5;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-
-  transition: all 0.4s ease;
-}
-
-.reservation-button:hover {
-  background: #f4e8d9;
-
-  color: #4a3225;
-}
-
-
-/* ========================================
-   FOOTER
-======================================== */
-
-.footer {
-  width: 100%;
-
-  padding: 100px 7vw 40px;
-
-  background: #2c211b;
-
-  color: #e9dccb;
-}
-
-.footer__logo {
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 55px;
-
-  letter-spacing: 14px;
-
-  margin-bottom: 100px;
-}
-
-.footer__info {
-  display: grid;
-
-  grid-template-columns: repeat(3,
-      1fr);
-
-  gap: 40px;
-
-  margin-bottom: 100px;
-}
-
-.footer__info span {
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 3px;
-
-  opacity: 0.5;
-}
-
-.footer__info p {
-  margin-top: 20px;
-
-  font-size: 15px;
-
-  line-height: 1.8;
-}
-
-.footer__bottom {
-  padding-top: 25px;
-
-  border-top: 1px solid rgba(233,
-      220,
-      203,
-      0.2);
-
-  display: flex;
-
-  justify-content: space-between;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 2px;
-
-  opacity: 0.45;
-}
-
-
-/* ========================================
-   SCROLL ANIMATION
-======================================== */
-
-.animate {
-  opacity: 0;
-
-  transform: translateY(50px);
-
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
-}
-
-.animate.visible {
-  opacity: 1;
-
-  transform: translateY(0);
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
+   MOBILE VERSION — CAPITO
+   ======================================== */
 
 @media (max-width: 900px) {
 
-  /* HEADER */
+    /* ========================================
+       BASIC
+    ======================================== */
 
-  .header {
-    height: 75px;
+    html {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
 
-    padding: 0 25px;
-  }
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
 
-  .navigation,
-  .reservation-link {
-    display: none;
-  }
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
 
-  .menu-button {
-    display: flex;
-  }
 
+    /* ========================================
+       HEADER
+    ======================================== */
 
-  /* HERO */
+    .header {
+        position: fixed;
 
-  .hero {
-    height: 100svh;
+        top: 0;
+        left: 0;
 
-    min-height: 600px;
-  }
+        width: 100%;
+        max-width: 100%;
+        height: 70px;
 
-  .hero__video {
-    width: 100%;
-    height: 100%;
+        padding: 0 20px;
 
-    object-fit: cover;
-  }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-  .hero h1 {
-    font-size: 22vw;
+        z-index: 100;
+    }
 
-    letter-spacing: 0.04em;
-  }
+    .logo {
+        font-size: 19px;
+        letter-spacing: 6px;
 
-  .hero__small {
-    font-size: 8px;
+        white-space: nowrap;
+    }
 
-    letter-spacing: 4px;
-  }
+    .navigation,
+    .reservation-link {
+        display: none;
+    }
 
-  .hero__subtitle {
-    font-size: 8px;
+    .menu-button {
+        display: flex;
 
-    letter-spacing: 3px;
-  }
+        width: 30px;
+        height: 24px;
 
-  .hero__bottom {
-    left: 25px;
+        flex-shrink: 0;
+    }
 
-    bottom: 30px;
-  }
+    .menu-button span {
+        width: 100%;
+        height: 1px;
+    }
 
 
-  /* INTRO */
+    /* ========================================
+       HERO
+    ======================================== */
 
-  .intro {
-    min-height: auto;
+    .hero {
+        position: relative;
 
-    display: flex;
+        width: 100%;
+        max-width: 100%;
 
-    flex-direction: column;
-  }
+        height: 100svh;
+        min-height: 620px;
 
-  .intro__image {
-    width: 100%;
+        margin: 0;
+        padding: 0;
 
-    height: 70vh;
+        overflow: hidden;
 
-    min-height: 500px;
-  }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-  .intro__content {
-    padding: 90px 25px 100px;
-  }
+    .hero__video {
+        position: absolute;
 
-  .intro__label {
-    margin-bottom: 45px;
-  }
+        top: 0;
+        left: 0;
 
-  .intro__content h2 {
-    font-size: 16vw;
+        width: 100%;
+        height: 100%;
 
-    line-height: 0.95;
+        min-width: 100%;
+        min-height: 100%;
 
-    margin-bottom: 45px;
-  }
+        transform: none;
 
-  .intro__content p {
-    font-size: 16px;
+        object-fit: cover;
+        object-position: center center;
 
-    line-height: 1.8;
-  }
+        display: block;
+    }
 
+    .hero__overlay {
+        position: absolute;
+        inset: 0;
 
-  /* MENU */
+        width: 100%;
+        height: 100%;
+    }
 
-  .menu-section {
-    display: flex;
+    .hero__content {
+        position: relative;
 
-    flex-direction: column;
-  }
+        width: 100%;
+        max-width: 100%;
 
-  .menu-image {
-    min-height: 60vh;
-  }
+        padding: 0 20px;
 
-  .menu-content {
-    padding: 90px 25px;
-  }
+        text-align: center;
 
-  .menu-content h2 {
-    font-size: 20vw;
-  }
+        transform: translateY(-10px);
+    }
 
+    .hero__small {
+        font-size: 8px;
+        letter-spacing: 4px;
 
-  /* ATMOSPHERE */
+        margin-bottom: 25px;
 
-  .atmosphere {
-    min-height: 90vh;
-  }
+        white-space: nowrap;
+    }
 
-  .atmosphere__content {
-    margin-left: 25px;
-  }
+    .hero h1 {
+        width: 100%;
+        max-width: 100%;
 
-  .atmosphere h2 {
-    font-size: 17vw;
-  }
+        font-size: clamp(58px, 18vw, 92px);
 
+        letter-spacing: 0.025em;
+        line-height: 0.85;
 
-  /* TEAM */
+        white-space: nowrap;
+    }
 
-  .team {
-    display: flex;
+    .hero__subtitle {
+        margin-top: 30px;
 
-    flex-direction: column;
-  }
+        font-size: 8px;
+        letter-spacing: 3px;
 
-  .team__image {
-    min-height: 65vh;
-  }
+        white-space: nowrap;
+    }
 
-  .team__content {
-    padding: 90px 25px;
-  }
+    .hero__bottom {
+        position: absolute;
 
-  .team__content h2 {
-    font-size: 17vw;
-  }
+        left: 20px;
+        bottom: 25px;
 
+        max-width: calc(100% - 40px);
 
-  /* RESERVATION */
+        gap: 14px;
+    }
 
-  .reservation {
-    min-height: 75vh;
-  }
+    .hero__bottom span {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
 
-  .reservation h2 {
-    font-size: 18vw;
-  }
+    .hero__line {
+        width: 45px;
+        flex-shrink: 0;
+    }
 
 
-  /* FOOTER */
+    /* ========================================
+       INTRO
+    ======================================== */
 
-  .footer {
-    padding: 70px 25px 30px;
-  }
+    .intro {
+        width: 100%;
+        max-width: 100%;
 
-  .footer__logo {
-    font-size: 35px;
+        min-height: auto;
 
-    letter-spacing: 8px;
+        display: flex;
+        flex-direction: column;
 
-    margin-bottom: 70px;
-  }
+        margin: 0;
+        padding: 0;
+    }
 
-  .footer__info {
-    grid-template-columns: 1fr;
+    .intro__image {
+        position: relative;
 
-    gap: 40px;
+        width: 100%;
+        max-width: 100%;
 
-    margin-bottom: 70px;
-  }
+        height: 62svh;
+        min-height: 420px;
+        max-height: 650px;
 
-  .footer__bottom {
-    gap: 20px;
+        overflow: hidden;
 
-    flex-direction: column;
-  }
+        flex-shrink: 0;
+    }
+
+    .intro__image img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        max-width: none;
+
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .intro__content {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 75px 24px 85px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        overflow: hidden;
+    }
+
+    .intro__number {
+        font-size: 8px;
+        letter-spacing: 2px;
+
+        margin-bottom: 12px;
+    }
+
+    .intro__label {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+
+        margin-bottom: 38px;
+    }
+
+    .intro__content h2 {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(48px, 15vw, 76px);
+
+        line-height: 0.95;
+
+        margin-bottom: 35px;
+
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .intro__content p {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.8;
+
+        margin-bottom: 40px;
+    }
+
+    .text-link {
+        max-width: 100%;
+
+        gap: 18px;
+
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+
+    /* ========================================
+       MENU
+    ======================================== */
+
+    .menu-section {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu-image {
+        width: 100%;
+        max-width: 100%;
+
+        height: 58svh;
+        min-height: 400px;
+        max-height: 600px;
+
+        flex-shrink: 0;
+
+        background-position: center center;
+    }
+
+    .menu-content {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 75px 24px 85px;
+
+        overflow: hidden;
+    }
+
+    .menu-content h2 {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(58px, 18vw, 90px);
+
+        line-height: 0.9;
+
+        margin: 25px 0 35px;
+
+        overflow-wrap: break-word;
+    }
+
+    .menu-content p {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.8;
+
+        margin-bottom: 40px;
+    }
+
+    .outline-button {
+        max-width: 100%;
+
+        padding: 17px 25px;
+
+        font-size: 8px;
+        letter-spacing: 2.5px;
+
+        white-space: nowrap;
+    }
+
+
+    /* ========================================
+       ATMOSPHERE
+    ======================================== */
+
+    .atmosphere {
+        position: relative;
+
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 78svh;
+
+        margin: 0;
+        padding: 0;
+
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+    }
+
+    .atmosphere__content {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+        padding: 0 24px;
+    }
+
+    .atmosphere h2 {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 35px;
+
+        font-size: clamp(54px, 17vw, 88px);
+
+        line-height: 0.9;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* ========================================
+       CONTACTS
+    ======================================== */
+
+    .contacts {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: auto;
+
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    .contacts__content {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 80px 24px 85px;
+    }
+
+    .contacts h2 {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 35px;
+        margin-bottom: 55px;
+
+        font-size: clamp(54px, 17vw, 88px);
+
+        line-height: 0.9;
+
+        overflow-wrap: break-word;
+    }
+
+    .contacts__info {
+        width: 100%;
+        max-width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+
+        margin-bottom: 50px;
+    }
+
+    .contacts__item {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contacts__item span {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+
+        margin-bottom: 12px;
+    }
+
+    .contacts__item p {
+        font-size: 15px;
+        line-height: 1.7;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* ========================================
+       RESERVATION
+    ======================================== */
+
+    .reservation {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 70svh;
+
+        margin: 0;
+        padding: 70px 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+    }
+
+    .reservation__content {
+        width: 100%;
+        max-width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .reservation h2 {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 35px 0 50px;
+
+        font-size: clamp(54px, 17vw, 88px);
+
+        line-height: 0.9;
+
+        overflow-wrap: break-word;
+    }
+
+    .reservation-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        max-width: 100%;
+
+        padding: 19px 28px;
+
+        font-size: 8px;
+        letter-spacing: 2.5px;
+
+        white-space: nowrap;
+    }
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+    .footer {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+        padding: 65px 24px 30px;
+
+        overflow: hidden;
+    }
+
+    .footer__logo {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(30px, 10vw, 42px);
+
+        letter-spacing: 7px;
+
+        margin-bottom: 60px;
+
+        white-space: nowrap;
+    }
+
+    .footer__info {
+        width: 100%;
+        max-width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+
+        margin-bottom: 60px;
+    }
+
+    .footer__info span {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+    }
+
+    .footer__info p {
+        margin-top: 12px;
+
+        font-size: 14px;
+        line-height: 1.7;
+
+        overflow-wrap: break-word;
+    }
+
+    .footer__bottom {
+        width: 100%;
+        max-width: 100%;
+
+        padding-top: 20px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+   ======================================== */
+
+@media (max-width: 380px) {
+
+    .header {
+        padding: 0 16px;
+    }
+
+    .logo {
+        font-size: 17px;
+        letter-spacing: 5px;
+    }
+
+    .hero__content {
+        padding: 0 16px;
+    }
+
+    .hero h1 {
+        font-size: 17vw;
+    }
+
+    .hero__small {
+        font-size: 7px;
+        letter-spacing: 3px;
+    }
+
+    .hero__subtitle {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .hero__bottom {
+        left: 16px;
+        bottom: 20px;
+    }
+
+    .intro__content,
+    .menu-content,
+    .contacts__content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .atmosphere__content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .reservation {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
