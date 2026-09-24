@@ -15,7 +15,6 @@
     <main class="booking-page">
 
         <!-- HEADER -->
-
         <header class="booking-header">
 
             <a href="index.html" class="booking-logo">
@@ -30,12 +29,13 @@
 
 
         <!-- BOOKING -->
-
         <section class="booking">
 
             <div class="booking-intro">
 
-                <span>CAPITO COFFEE BAR</span>
+                <span class="booking-label">
+                    CAPITO COFFEE BAR
+                </span>
 
                 <h1>
                     Забронировать
@@ -51,17 +51,19 @@
 
             <form class="booking-form">
 
+                <!-- ИМЯ -->
                 <div class="form-group">
 
                     <label for="name">
                         Имя
                     </label>
 
-                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
 
                 </div>
 
 
+                <!-- ДАТА + ВРЕМЯ -->
                 <div class="form-row">
 
                     <div class="form-group">
@@ -88,6 +90,7 @@
                 </div>
 
 
+                <!-- ГОСТИ -->
                 <div class="form-group">
 
                     <label for="guests">
@@ -95,22 +98,25 @@
                     </label>
 
                     <input type="number" id="guests" name="guests" placeholder="Введите количество гостей" min="1"
-                        max="50" required>
+                        max="50" inputmode="numeric" required>
 
                 </div>
 
 
+                <!-- ТЕЛЕФОН -->
                 <div class="form-group">
 
                     <label for="phone">
                         Телефон
                     </label>
 
-                    <input type="tel" id="phone" name="phone" placeholder="+996 ___ ___ ___" required>
+                    <input type="tel" id="phone" name="phone" placeholder="+996 ___ ___ ___" autocomplete="tel"
+                        inputmode="tel" required>
 
                 </div>
 
 
+                <!-- КОММЕНТАРИЙ -->
                 <div class="form-group">
 
                     <label for="comment">
@@ -122,6 +128,7 @@
                 </div>
 
 
+                <!-- КНОПКА -->
                 <button type="submit" class="booking-button">
                     Забронировать
                 </button>
@@ -132,10 +139,11 @@
 
 
         <!-- FOOTER -->
-
         <footer class="booking-footer">
 
-            <span>CAPITO</span>
+            <span class="booking-footer-logo">
+                CAPITO
+            </span>
 
             <p>
                 Место, где вкус становится впечатлением.
