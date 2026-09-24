@@ -902,187 +902,400 @@ button {
    MOBILE
 ======================================== */
 
+/* ========================================
+   MOBILE — FULL WIDTH
+======================================== */
+
 @media (max-width: 900px) {
 
-  /* HEADER */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
 
-  .header {
-    height: 75px;
-    padding: 0 20px;
-  }
-
-  .logo {
-    font-size: 18px;
-    letter-spacing: 5px;
-  }
-
-  /* Навигация скрыта,
-       она открывается через кнопку меню */
-
-  .navigation {
-    display: none;
-  }
-
-  /* БРОНИРОВАНИЕ — ОСТАВЛЯЕМ В ШАПКЕ */
-
-  .reservation-link {
-    display: block;
-
-    font-size: 8px;
-    letter-spacing: 1.5px;
-
-    white-space: nowrap;
-
-    margin-left: auto;
-    margin-right: 18px;
-  }
-
-  /* MOBILE MENU BUTTON */
-
-  .menu-button {
-    display: flex;
-
-    width: 28px;
-    height: 22px;
-
-    flex-shrink: 0;
-  }
+    main {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+    }
 
 
-  /* HERO */
+    /* ========================================
+       HEADER
+    ======================================== */
 
-  .hero {
-    height: 100svh;
-    min-height: 600px;
-  }
+    .header {
+        width: 100%;
+        max-width: 100%;
+        height: 75px;
+        padding: 0 20px;
 
-  .hero__video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+        display: flex;
+        align-items: center;
+    }
 
-  .hero h1 {
-    font-size: 22vw;
-    letter-spacing: 0.04em;
-  }
+    .logo {
+        font-size: 18px;
+        letter-spacing: 5px;
+        flex-shrink: 0;
+    }
 
-  .hero__small {
-    font-size: 8px;
-    letter-spacing: 4px;
-  }
+    .navigation {
+        display: none;
+    }
 
-  .hero__subtitle {
-    font-size: 8px;
-    letter-spacing: 3px;
-  }
+    .reservation-link {
+        display: block;
 
-  .hero__bottom {
-    left: 25px;
-    bottom: 30px;
-  }
+        margin-left: auto;
+        margin-right: 18px;
 
+        font-size: 8px;
+        letter-spacing: 1.5px;
 
-  /* INTRO */
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
 
-  .intro {
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-  }
+    .menu-button {
+        display: flex;
 
-  .intro__image {
-    width: 100%;
-    height: 70vh;
-    min-height: 500px;
-  }
+        width: 28px;
+        height: 22px;
 
-  .intro__content {
-    padding: 90px 25px 100px;
-  }
-
-  .intro__label {
-    margin-bottom: 45px;
-  }
-
-  .intro__content h2 {
-    font-size: 16vw;
-    line-height: 0.95;
-    margin-bottom: 45px;
-  }
-
-  .intro__content p {
-    font-size: 16px;
-    line-height: 1.8;
-  }
+        padding: 0;
+        flex-shrink: 0;
+    }
 
 
-  /* MENU */
+    /* ========================================
+       HERO
+    ======================================== */
 
-  .menu-section {
-    display: flex;
-    flex-direction: column;
-  }
+    .hero {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
 
-  .menu-image {
-    min-height: 60vh;
-  }
+        height: 100svh;
+        min-height: 600px;
 
-  .menu-content {
-    padding: 90px 25px;
-  }
+        overflow: hidden;
+    }
 
-  .menu-content h2 {
-    font-size: 20vw;
-  }
+    .hero__video {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+    .hero__overlay {
+        width: 100%;
+    }
+
+    .hero__content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 21vw;
+        letter-spacing: 0.03em;
+
+        white-space: nowrap;
+    }
+
+    .hero__small {
+        font-size: 8px;
+        letter-spacing: 4px;
+    }
+
+    .hero__subtitle {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+        white-space: nowrap;
+    }
+
+    .hero__bottom {
+        left: 20px;
+        bottom: 30px;
+    }
 
 
-  /* ATMOSPHERE */
+    /* ========================================
+       RESTAURANT
+    ======================================== */
 
-  .atmosphere {
-    min-height: 90vh;
-  }
+    .intro {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
 
-  .atmosphere__content {
-    margin-left: 25px;
-  }
+        min-height: auto;
 
-  .atmosphere h2 {
-    font-size: 17vw;
-  }
+        display: flex;
+        flex-direction: column;
+    }
+
+    .intro__image {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        height: 65vh;
+        min-height: 400px;
+
+        overflow: hidden;
+    }
+
+    .intro__image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+    .intro__content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        padding: 80px 25px 90px;
+    }
+
+    .intro__label {
+        margin-bottom: 35px;
+    }
+
+    .intro__content h2 {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 14vw;
+        line-height: 0.95;
+
+        margin-bottom: 35px;
+    }
+
+    .intro__content p {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.8;
+    }
 
 
-  /* RESERVATION */
+    /* ========================================
+       MENU
+    ======================================== */
 
-  .reservation {
-    min-height: 75vh;
-  }
+    .menu-section {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
 
-  .reservation h2 {
-    font-size: 18vw;
-  }
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-image {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        min-height: 55vh;
+    }
+
+    .menu-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        padding: 80px 25px 90px;
+    }
+
+    .menu-content h2 {
+        font-size: 18vw;
+        line-height: 0.9;
+    }
+
+    .menu-content p {
+        max-width: 100%;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .outline-button {
+        max-width: 100%;
+    }
 
 
-  /* FOOTER */
+    /* ========================================
+       ATMOSPHERE
+    ======================================== */
 
-  .footer {
-    padding: 70px 25px 30px;
-  }
+    .atmosphere {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
 
-  .footer__logo {
-    font-size: 35px;
-    letter-spacing: 8px;
-    margin-bottom: 70px;
-  }
+        min-height: 80vh;
 
-  .footer__info {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-bottom: 70px;
-  }
+        overflow: hidden;
+    }
 
-  .footer__bottom {
-    gap: 20px;
-    flex-direction: column;
-  }
+    .atmosphere__content {
+        width: 100%;
+        max-width: 100%;
+
+        margin-left: 0;
+        padding: 0 25px;
+    }
+
+    .atmosphere h2 {
+        font-size: 16vw;
+        line-height: 0.9;
+    }
+
+
+    /* ========================================
+       RESERVATION
+    ======================================== */
+
+    .reservation {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        min-height: 70vh;
+
+        padding: 80px 25px;
+    }
+
+    .reservation__content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .reservation h2 {
+        font-size: 16vw;
+        line-height: 0.9;
+
+        margin: 40px 0 55px;
+    }
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+    .footer {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        padding: 70px 25px 30px;
+    }
+
+    .footer__logo {
+        font-size: 34px;
+        letter-spacing: 7px;
+
+        margin-bottom: 60px;
+    }
+
+    .footer__info {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+        margin-bottom: 60px;
+    }
+
+    .footer__bottom {
+        width: 100%;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 380px) {
+
+    .header {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+        letter-spacing: 4px;
+    }
+
+    .reservation-link {
+        font-size: 7px;
+        letter-spacing: 1px;
+        margin-right: 12px;
+    }
+
+    .menu-button {
+        width: 25px;
+    }
+
+    .hero h1 {
+        font-size: 20vw;
+    }
+
+    .hero__subtitle {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .intro__content,
+    .menu-content,
+    .reservation {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .intro__content h2 {
+        font-size: 13vw;
+    }
+
+    .menu-content h2 {
+        font-size: 17vw;
+    }
+
+    .atmosphere__content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .atmosphere h2 {
+        font-size: 15vw;
+    }
+
+    .reservation h2 {
+        font-size: 15vw;
+    }
+
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
