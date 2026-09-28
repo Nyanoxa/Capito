@@ -899,96 +899,229 @@ button {
 
 
 /* ========================================
-   CAPITO — MOBILE REDESIGN
-======================================== */
-
-/* HEADER: читаемая шапка при прокрутке */
-
-.header {
-  transition:
-    background 0.35s ease,
-    height 0.35s ease,
-    color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.header.scrolled {
-  background: rgba(44, 33, 27, 0.94);
-  color: #f4eadb;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.header.scrolled .menu-button span {
-  background: #f4eadb;
-}
-
-/* ========================================
-   MOBILE MENU BUTTON
-======================================== */
-
-.menu-button {
-  position: relative;
-  z-index: 102;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-
-.menu-button:hover {
-  background: rgba(244, 234, 219, 0.12);
-}
-
-.menu-button span {
-  width: 24px;
-  height: 2px;
-  border-radius: 5px;
-  transform-origin: center;
-}
-
-.menu-button.active span:first-child {
-  transform: translateY(4.5px) rotate(45deg);
-}
-
-.menu-button.active span:last-child {
-  transform: translateY(-4.5px) rotate(-45deg);
-}
-
-/* ========================================
-   MOBILE NAVIGATION PANEL
+   CAPITO — MOBILE VERSION
 ======================================== */
 
 @media (max-width: 900px) {
 
+  /* ========================================
+     GLOBAL MOBILE
+  ======================================== */
+
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* ========================================
+     HEADER
+  ======================================== */
+
   .header {
-    height: 75px;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: 70px;
+
     padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+
+    z-index: 1000;
+
+    color: #f4eadb;
+
+    pointer-events: none;
+
+    transition:
+      background 0.35s ease,
+      height 0.35s ease,
+      box-shadow 0.35s ease,
+      backdrop-filter 0.35s ease;
+  }
+
+  .header > * {
+    pointer-events: auto;
   }
 
   .header.scrolled {
-    height: 70px;
+    height: 65px;
+
+    background: rgba(44, 33, 27, 0.92);
+
+    box-shadow:
+      0 4px 25px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
+
+
+  /* ========================================
+     LOGO
+  ======================================== */
+
+  .logo {
+    position: relative;
+    z-index: 1002;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    white-space: nowrap;
+  }
+
+
+  /* ========================================
+     RESERVATION LINK IN HEADER
+  ======================================== */
+
+  .header > .reservation-link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 36px;
+
+    padding: 0 11px;
+
+    margin-left: auto;
+    margin-right: 10px;
+
+    border: 1px solid rgba(244, 234, 219, 0.65);
+    border-radius: 2px;
+
+    background: transparent;
+
+    color: #f4eadb;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 7px;
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+  }
+
+  .header > .reservation-link::after {
+    display: none;
+  }
+
+
+  /* ========================================
+     BURGER BUTTON
+  ======================================== */
+
+  .menu-button {
+    position: relative;
+    z-index: 1002;
+
+    display: flex;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    cursor: pointer;
+  }
+
+  .menu-button span {
+    display: block;
+
+    width: 23px;
+    height: 1.5px;
+
+    background: #f4eadb;
+
+    border-radius: 10px;
+
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .menu-button.active span:first-child {
+    transform: translateY(4.25px) rotate(45deg);
+  }
+
+  .menu-button.active span:last-child {
+    transform: translateY(-4.25px) rotate(-45deg);
+  }
+
+
+  /* ========================================
+     MOBILE NAVIGATION
+  ======================================== */
 
   .navigation {
     position: fixed;
+
     inset: 0;
-    z-index: 101;
+
+    z-index: 1001;
 
     width: 100%;
+    max-width: 100%;
+
     height: 100vh;
     height: 100dvh;
 
+    padding: 100px 25px 40px;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: flex-start;
+
     justify-content: center;
 
     gap: 0;
-    padding: 90px 35px 50px;
 
     background: #34251d;
+
     color: #f4eadb;
 
     opacity: 0;
@@ -1009,22 +1142,31 @@ button {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+
     transform: translateY(0);
   }
 
   .navigation a {
     display: block;
+
     width: 100%;
 
-    padding: 18px 0;
+    padding: 17px 0;
 
-    font-family: Georgia, serif;
-    font-size: clamp(27px, 7vw, 38px);
+    border-bottom:
+      1px solid rgba(244, 234, 219, 0.15);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(28px, 8vw, 38px);
+
     font-weight: 400;
-    letter-spacing: 0;
-    text-transform: none;
 
-    border-bottom: 1px solid rgba(244, 234, 219, 0.15);
+    line-height: 1;
+
+    letter-spacing: 0;
+
+    text-transform: none;
 
     transition:
       color 0.3s ease,
@@ -1033,129 +1175,447 @@ button {
 
   .navigation a:hover {
     color: #d5b895;
-    padding-left: 10px;
+    padding-left: 8px;
   }
 
   .navigation a::after {
     display: none;
   }
 
-  /* Кнопка бронирования в шапке */
-
-  .header>.reservation-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 38px;
-    padding: 0 13px;
-
-    margin-left: auto;
-    margin-right: 12px;
-
-    border: 1px solid rgba(244, 234, 219, 0.65);
-    border-radius: 3px;
-
-    font-size: 8px;
-    letter-spacing: 1px;
-    white-space: nowrap;
-  }
-
-  .header>.reservation-link::after {
-    display: none;
-  }
-
-  .menu-button {
-    display: flex;
-    width: 38px;
-    height: 38px;
-    flex-shrink: 0;
-    gap: 7px;
-  }
-
-  /* Убираем прокрутку страницы при открытом меню */
-
   body.menu-open {
     overflow: hidden;
     height: 100%;
   }
 
-  /* ====================================
-       INTRO — DARKER TOP AND HEADER
-    ==================================== */
+
+  /* ========================================
+     HERO
+  ======================================== */
+
+  .hero {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: 100svh;
+    min-height: 620px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__video {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    transform: translate(-50%, -50%);
+
+    object-fit: cover;
+
+    z-index: 0;
+  }
+
+  .hero__overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(45, 33, 26, 0.48),
+        rgba(45, 33, 26, 0.08) 45%,
+        rgba(45, 33, 26, 0.72)
+      );
+  }
+
+
+  /* ========================================
+     HERO TEXT
+  ======================================== */
+
+  .hero__content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 0 18px;
+
+    text-align: center;
+
+    transform: translateY(-15px);
+  }
+
+  .hero__small {
+    margin-bottom: 23px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+  }
+
+  .hero h1 {
+    width: 100%;
+
+    font-size: clamp(54px, 17vw, 82px);
+
+    font-weight: 400;
+
+    line-height: 0.85;
+
+    letter-spacing: 0.04em;
+
+    white-space: nowrap;
+  }
+
+  .hero__subtitle {
+    margin-top: 27px;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    letter-spacing: 3px;
+  }
+
+
+  /* ========================================
+     HERO SCROLL
+  ======================================== */
+
+  .hero__bottom {
+    position: absolute;
+
+    left: 50%;
+    bottom: 28px;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .hero__bottom span {
+    font-size: 7px;
+
+    letter-spacing: 3px;
+  }
+
+  .hero__line {
+    width: 1px;
+    height: 32px;
+  }
+
+
+  /* ========================================
+     SECTION COMMON
+  ======================================== */
+
+  .section-number {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+  }
+
+  .section-label {
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  /* ========================================
+     SECTION 01 — RESTAURANT
+  ======================================== */
 
   .intro {
-    position: relative;
+    width: 100%;
+    max-width: 100%;
+
+    min-height: auto;
+
+    display: grid;
+
+    /* ВАЖНО:
+       полностью убираем десктопные 55% / 45% */
+    grid-template-columns: 1fr;
+
     background: #e3d3bd;
   }
 
+
+  /* ========================================
+     RESTAURANT IMAGE
+  ======================================== */
+
   .intro__image {
     position: relative;
-    height: 58vh;
-    height: 58svh;
-    min-height: 380px;
-    max-height: 580px;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: 52svh;
+
+    min-height: 360px;
+    max-height: 520px;
+
+    overflow: hidden;
+  }
+
+  .intro__image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: none;
+  }
+
+  .intro__image:hover img {
+    transform: none;
   }
 
   .intro__image::after {
     content: "";
+
     position: absolute;
+
     inset: 0;
 
-    background: linear-gradient(to bottom,
-        rgba(35, 24, 18, 0.50) 0%,
-        rgba(35, 24, 18, 0.12) 35%,
-        transparent 75%);
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(35, 24, 18, 0.48),
+        rgba(35, 24, 18, 0.05) 45%,
+        transparent 75%
+      );
 
     pointer-events: none;
   }
 
+
+  /* ========================================
+     RESTAURANT CONTENT
+  ======================================== */
+
   .intro__content {
-    padding: 65px 25px 80px;
+    width: 100%;
+    max-width: 100%;
+
+    padding: 65px 25px 75px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
     background: #e3d3bd;
+
+    color: #35251c;
   }
 
-  .intro__content h2 {
-    font-size: clamp(46px, 13vw, 68px);
-    line-height: 0.98;
-    margin-bottom: 30px;
+  .intro__number {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 13px;
   }
 
   .intro__label {
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
     margin-bottom: 35px;
   }
 
-  .intro__content p {
-    font-size: 15px;
-    line-height: 1.75;
-    margin-bottom: 30px;
+  .intro__content h2 {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 30px;
+
+    font-size: clamp(43px, 12.5vw, 64px);
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.02em;
   }
 
-  /* ====================================
-       BUTTONS — CLEAR AND TOUCH FRIENDLY
-    ==================================== */
+  .intro__content h2 em {
+    color: #76513b;
+
+    font-style: italic;
+  }
+
+  .intro__content p {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    color: #684c3b;
+  }
+
+
+  /* ========================================
+     MENU
+  ======================================== */
+
+  .menu-section {
+    width: 100%;
+    max-width: 100%;
+
+    min-height: auto;
+
+    display: grid;
+
+    /* ВАЖНО:
+       картинка сверху,
+       текст снизу */
+    grid-template-columns: 1fr;
+
+    background: #34251d;
+
+    color: #f3e7d8;
+  }
+
+
+  /* ========================================
+     MENU IMAGE
+  ======================================== */
+
+  .menu-image {
+    width: 100%;
+    max-width: 100%;
+
+    height: 50svh;
+
+    min-height: 350px;
+    max-height: 500px;
+
+    background:
+      linear-gradient(
+        rgba(50, 35, 25, 0.12),
+        rgba(50, 35, 25, 0.12)
+      ),
+      url("menu.jpg") center / cover no-repeat;
+  }
+
+
+  /* ========================================
+     MENU CONTENT
+  ======================================== */
+
+  .menu-content {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 65px 25px 75px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+  }
+
+  .menu-content h2 {
+    margin: 25px 0 30px;
+
+    font-size: clamp(62px, 18vw, 92px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+  }
+
+  .menu-content p {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 35px;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    color: #cdbba6;
+  }
+
+
+  /* ========================================
+     BUTTONS
+  ======================================== */
 
   .outline-button,
   .reservation-button,
-  .reservation__content>.reservation-link {
+  .reservation__content > .reservation-link {
+
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
-    min-height: 56px;
-    padding: 0 25px;
+    width: fit-content;
+
+    min-height: 54px;
+
+    padding: 0 23px;
 
     border: 1px solid #d7c1a5;
-    border-radius: 3px;
+    border-radius: 2px;
 
-    background: #d7c1a5;
-    color: #34251d;
+    background: transparent;
+
+    color: inherit;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
     text-align: center;
+
     text-transform: uppercase;
 
     transition:
@@ -1166,186 +1626,428 @@ button {
 
   .outline-button:hover,
   .reservation-button:hover,
-  .reservation__content>.reservation-link:hover {
-    background: #f4e8d9;
+  .reservation__content > .reservation-link:hover {
+
+    background: #f3e7d8;
+
     color: #34251d;
-    transform: translateY(-2px);
+
+    transform: none;
   }
 
   .outline-button:active,
   .reservation-button:active,
-  .reservation__content>.reservation-link:active {
+  .reservation__content > .reservation-link:active {
     transform: scale(0.98);
   }
 
-  /* ====================================
-       MENU SECTION
-    ==================================== */
 
-  .menu-image {
-    min-height: 45vh;
-    min-height: 45svh;
-  }
-
-  .menu-content {
-    padding: 65px 25px 75px;
-  }
-
-  .menu-content h2 {
-    font-size: clamp(65px, 18vw, 100px);
-    margin: 25px 0;
-  }
-
-  .menu-content p {
-    font-size: 15px;
-    line-height: 1.75;
-    margin-bottom: 35px;
-  }
-
-  /* ====================================
-       ATMOSPHERE
-    ==================================== */
+  /* ========================================
+     ATMOSPHERE
+  ======================================== */
 
   .atmosphere {
     position: relative;
-    min-height: 75vh;
-    min-height: 75svh;
 
-    background-position: center;
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 78svh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background-position: center center;
   }
 
   .atmosphere::before {
     content: "";
+
     position: absolute;
+
     inset: 0;
 
-    background: linear-gradient(to bottom,
-        rgba(35, 24, 18, 0.65),
-        rgba(35, 24, 18, 0.25) 45%,
-        rgba(35, 24, 18, 0.70));
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(35, 24, 18, 0.58),
+        rgba(35, 24, 18, 0.18) 45%,
+        rgba(35, 24, 18, 0.72)
+      );
 
     pointer-events: none;
   }
 
   .atmosphere__content {
     position: relative;
+
     z-index: 1;
-    margin-left: 25px;
-    margin-right: 20px;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 40px 25px;
   }
 
   .atmosphere h2 {
-    font-size: clamp(58px, 16vw, 90px);
     margin-top: 30px;
+
+    font-size: clamp(53px, 16vw, 86px);
+
+    line-height: 0.91;
+
+    font-weight: 400;
   }
 
-  /* ====================================
-       RESERVATION
-    ==================================== */
+
+  /* ========================================
+     RESERVATION
+  ======================================== */
 
   .reservation {
-    min-height: 65vh;
+    width: 100%;
+    max-width: 100%;
+
     min-height: 65svh;
-    padding: 65px 25px;
+
+    padding: 70px 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: #4a3225;
   }
 
   .reservation__content {
     width: 100%;
+    max-width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
   }
 
   .reservation h2 {
-    font-size: clamp(55px, 16vw, 90px);
-    margin: 35px 0 40px;
+    margin: 32px 0 42px;
+
+    font-size: clamp(49px, 15vw, 78px);
+
+    line-height: 0.92;
+
+    font-weight: 400;
   }
 
-  .reservation__content>.reservation-link {
-    min-width: 220px;
-    background: #d7b995;
-    color: #34251d;
-    border-color: #d7b995;
+  .reservation__content > .reservation-link {
+    min-width: 210px;
+
+    background: transparent;
+
+    color: #f4e8d9;
+
+    border-color: #d7c1a5;
   }
 
-  /* ====================================
-       FOOTER — COMPACT COLUMNS
-    ==================================== */
+
+  /* ========================================
+     FOOTER
+  ======================================== */
 
   .footer {
-    padding: 55px 25px 25px;
+    width: 100%;
+    max-width: 100%;
+
+    padding: 60px 25px 25px;
+
+    background: #2c211b;
+
+    color: #e9dccb;
   }
 
   .footer__logo {
     font-size: 32px;
-    letter-spacing: 8px;
-    margin-bottom: 40px;
-  }
 
-  .footer__info {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px 18px;
+    letter-spacing: 8px;
+
     margin-bottom: 45px;
   }
 
-  .footer__info>div {
+  .footer__info {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 32px 18px;
+
+    margin-bottom: 50px;
+  }
+
+  .footer__info > div {
     min-width: 0;
   }
 
   .footer__info span {
-    font-size: 8px;
+    font-size: 7px;
+
     letter-spacing: 1.5px;
   }
 
   .footer__info p {
     margin-top: 12px;
+
     font-size: 13px;
+
     line-height: 1.7;
+
     overflow-wrap: anywhere;
+
+    word-break: break-word;
   }
 
   .footer__bottom {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    width: 100%;
 
-    gap: 12px;
     padding-top: 20px;
 
+    border-top:
+      1px solid rgba(233, 220, 203, 0.2);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
     font-size: 7px;
+
     letter-spacing: 1px;
+
+    opacity: 0.45;
   }
+
+
+  /* ========================================
+     SCROLL ANIMATIONS
+  ======================================== */
+
+  .animate {
+    transform: translateY(30px);
+
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+
 }
 
-/* Узкие телефоны */
+
+/* ========================================
+   SMALL PHONES
+   380px AND BELOW
+======================================== */
 
 @media (max-width: 380px) {
 
   .header {
-    padding: 0 12px;
+    height: 64px;
+
+    padding: 0 13px;
+  }
+
+  .header.scrolled {
+    height: 60px;
   }
 
   .logo {
-    font-size: 16px;
-    letter-spacing: 4px;
+    font-size: 15px;
+
+    letter-spacing: 3px;
   }
 
-  .header>.reservation-link {
-    font-size: 7px;
-    padding: 0 9px;
-    margin-right: 8px;
+  .header > .reservation-link {
+    min-height: 33px;
+
+    padding: 0 8px;
+
+    margin-right: 6px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 0.8px;
   }
 
   .menu-button {
-    width: 32px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .menu-button span {
+    width: 21px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 580px;
+  }
+
+  .hero__content {
+    padding: 0 15px;
+  }
+
+  .hero__small {
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 16vw;
+
+    letter-spacing: 0.025em;
+  }
+
+  .hero__subtitle {
+    font-size: 7px;
+
+    letter-spacing: 2.2px;
+
+    margin-top: 23px;
+  }
+
+  .hero__bottom {
+    bottom: 22px;
+  }
+
+
+  /* INTRO */
+
+  .intro__image {
+    height: 48svh;
+
+    min-height: 320px;
+  }
+
+  .intro__content {
+    padding:
+      55px
+      20px
+      65px;
+  }
+
+  .intro__content h2 {
+    font-size: 12.5vw;
+  }
+
+  .intro__content p {
+    font-size: 14px;
+  }
+
+
+  /* MENU */
+
+  .menu-image {
+    height: 45svh;
+
+    min-height: 300px;
+  }
+
+  .menu-content {
+    padding:
+      55px
+      20px
+      65px;
+  }
+
+  .menu-content h2 {
+    font-size: 18vw;
+  }
+
+  .menu-content p {
+    font-size: 14px;
+  }
+
+
+  /* ATMOSPHERE */
+
+  .atmosphere {
+    min-height: 70svh;
+  }
+
+  .atmosphere__content {
+    padding:
+      35px
+      20px;
+  }
+
+  .atmosphere h2 {
+    font-size: 16vw;
+  }
+
+
+  /* RESERVATION */
+
+  .reservation {
+    min-height: 60svh;
+
+    padding:
+      60px
+      20px;
+  }
+
+  .reservation h2 {
+    font-size: 15vw;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    padding:
+      50px
+      20px
+      22px;
+  }
+
+  .footer__logo {
+    font-size: 28px;
+
+    letter-spacing: 6px;
   }
 
   .footer__info {
-    gap: 25px 12px;
+    gap: 28px 12px;
   }
 
   .footer__info p {
     font-size: 12px;
   }
+
+  .footer__bottom {
+    font-size: 6px;
+
+    letter-spacing: 0.8px;
+  }
+
 }
