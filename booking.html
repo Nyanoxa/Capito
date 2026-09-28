@@ -31,6 +31,7 @@
         <!-- BOOKING -->
         <section class="booking">
 
+            <!-- INTRO -->
             <div class="booking-intro">
 
                 <span class="booking-label">
@@ -42,13 +43,14 @@
                 </h1>
 
                 <p>
-                    Выберите удобные дату и время,
+                    Выберите удобный филиал, дату и время,
                     чтобы провести время в CAPITO.
                 </p>
 
             </div>
 
 
+            <!-- FORM -->
             <form class="booking-form">
 
                 <!-- ИМЯ -->
@@ -59,6 +61,76 @@
                     </label>
 
                     <input type="text" id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
+
+                </div>
+
+
+                <!-- ФИЛИАЛ -->
+                <div class="form-group">
+
+                    <label for="branch">
+                        Филиал
+                    </label>
+
+                    <select id="branch" name="branch" required>
+
+                        <option value="" disabled selected>
+                            Выберите филиал
+                        </option>
+
+                        <option value="Байтик Баатыра, 1/4">
+                            Байтик Баатыра, 1/4
+                        </option>
+
+                        <option value="Боконбаева, 103">
+                            Боконбаева, 103
+                        </option>
+
+                        <option value="Токомбаева, 23/9">
+                            Токомбаева, 23/9
+                        </option>
+
+                        <option value="Токомбаева, 43Б">
+                            Токомбаева, 43Б
+                        </option>
+
+                        <option value="Турусбекова, 100">
+                            Турусбекова, 100
+                        </option>
+
+                        <option value="Манаса, 49">
+                            Манаса, 49
+                        </option>
+
+                        <option value="Тыналиева, 1/3">
+                            Тыналиева, 1/3
+                        </option>
+
+                        <option value="Исанова, 41">
+                            Исанова, 41
+                        </option>
+
+                        <option value="Абдумомунова, 221">
+                            Абдумомунова, 221
+                        </option>
+
+                        <option value="Киевская, 148">
+                            Киевская, 148
+                        </option>
+
+                        <option value="Горького, 1/2">
+                            Горького, 1/2
+                        </option>
+
+                        <option value="Фрунзе, 282а">
+                            Фрунзе, 282а
+                        </option>
+
+                        <option value="Чынгыза Айтматова, 3">
+                            Чынгыза Айтматова, 3
+                        </option>
+
+                    </select>
 
                 </div>
 
@@ -162,7 +234,12 @@
 
             event.preventDefault();
 
-            alert("Спасибо! Ваша заявка на бронирование отправлена.");
+            const branch = document.querySelector("#branch").value;
+
+            alert(
+                "Спасибо! Ваша заявка на бронирование отправлена.\n\n" +
+                "Филиал: " + branch
+            );
 
             form.reset();
 
