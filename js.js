@@ -30,21 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ====================================
-       MOBILE MENU
-    ==================================== */
-
     const menuButton = document.querySelector(".menu-button");
     const navigation = document.querySelector(".navigation");
     const header = document.querySelector(".header");
 
     if (menuButton && navigation) {
 
-        // Начальное состояние кнопки
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute("aria-label", "Открыть меню");
 
-        // Открытие и закрытие меню
         function closeMenu() {
 
             navigation.classList.remove("open");
@@ -76,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         menuButton.addEventListener("click", toggleMenu);
 
-        // Закрываем меню после выбора раздела
+    
         navigation.querySelectorAll("a").forEach((link) => {
 
             link.addEventListener("click", () => {
@@ -85,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-        // Закрытие клавишей Escape
+
         document.addEventListener("keydown", (event) => {
 
             if (event.key === "Escape") {
@@ -94,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-        // Если перешли на компьютерную ширину
+
         window.addEventListener("resize", () => {
 
             if (window.innerWidth > 900) {
@@ -104,11 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
-
-
-    /* ====================================
-       HEADER ON SCROLL
-    ==================================== */
 
     if (header) {
 
@@ -131,9 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ====================================
-       HERO VIDEO
-    ==================================== */
 
     const video = document.querySelector(".hero__video");
 
